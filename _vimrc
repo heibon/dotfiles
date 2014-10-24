@@ -69,36 +69,14 @@ NeoBundle 'rizzatti/dash.vim.git'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.?(extlib|git|hg|svn|pyc|html~)$',
   \ }
-"" 画像表示
-"NeoBundle 'git@github.com:osyo-manga/vim-sugarpot.git'
-"" 画像表示の設定
-"let g:sugarpot_gvim = "Vim -g"
-"let g:sugarpot_xpm_cache_directory  = '~/Desktop'
-"let g:sugarpot_font = "Sathu:h6"
-"let g:sugarpot_gvim_cmd_option = ''
-"let g:sugarpot_convert_resize = "100%x80%"
-"command!  -nargs=1 PreView call s:preview(<q-args>)
-"
-"function! s:preview(url)
-"  let url = a:url
-"  execute "SugarpotPreview " . url
-"  augroup sugarpot-preview
-"    autocmd!
-"    autocmd! CursorHold,CursorHoldI * call s:foreground()
-"  augroup END
-"  let b:sugarpot_preview_url        = url
-"  let b:sugarpot_update_time_backup = &updatetime
-"  let &updatetime = 300
-"endfunction
-"
-"function! s:foreground()
-"  let server = fnamemodify(b:sugarpot_preview_url, ":t:r")
-"  call remote_foreground(server)
-"  let &updatetime = b:sugarpot_update_time_backup
-"  augroup sugarpot-preview
-"    autocmd!
-"  augroup END
-"endfunction
+
+" Installation check.
+NeoBundleCheck
+
+filetype on
+filetype plugin indent on
+
+" NeoBundle ここまで
 
 set t_Co=256
 " ファイラー関連
