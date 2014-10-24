@@ -30,6 +30,7 @@ alias git-new-workdir='~/bin/git-new-workdir'
 ####################
 # ORIGINAL COMMAND #
 ####################
+
 # Yes/No確認
 function yes_no {
     MSG=$1
