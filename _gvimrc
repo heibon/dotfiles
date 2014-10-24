@@ -1,0 +1,186 @@
+noremap h h
+noremap k k
+noremap j j
+noremap l l
+
+" vimgrep
+nnoremap [q :cprevious<CR>   " 前へ
+nnoremap ]q :cnext<CR>       " 次へ
+nnoremap [Q :<C-u>cfirst<CR> " 最初へ
+nnoremap ]Q :<C-u>clast<CR>  " 最後へ
+
+" 挿入モードでのカーソル移動
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+
+" Prefix: s
+nnoremap s <Nop>
+nnoremap sa :<C-u>CtrlP<Space>
+nnoremap sb :<C-u>CtrlPBuffer<CR>
+nnoremap sd :<C-u>CtrlPDir<CR>
+nnoremap sf :<C-u>CtrlP<CR>
+nnoremap sl :<C-u>CtrlPLine<CR>
+nnoremap sm :<C-u>CtrlPMRUFiles<CR>
+nnoremap sq :<C-u>CtrlPQuickfix<CR>
+nnoremap ss :<C-u>CtrlPMixed<CR>
+nnoremap st :<C-u>CtrlPTag<CR>
+
+let g:ctrlp_map = '<Nop>'
+" Guess vcs root dir
+let g:ctrlp_working_path_mode = 'ra'
+" Open new file in current window
+let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_extensions = ['tag', 'quickfix', 'dir', 'line', 'mixed']
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:18'
+
+" 全角スペースの可視化
+scriptencoding utf-8
+augroup highlightDoubleByteSpace
+  autocmd!
+  autocmd VimEnter,Colorscheme * highlight DoubleByteSpace term=underline ctermbg=LightMagenta guibg=LightMagenta
+  autocmd VimEnter,WinEnter,BufRead * match DoubleByteSpace /　/
+augroup END
+
+" 検索後にジャンプした際に検索単語を画面中央に持ってくる
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
+" vを二回で行末まで選択
+vnoremap v $h
+
+cmap w!! w !sudo tee > /dev/null %
+
+" TABにて対応ペアにジャンプ
+nnoremap <Tab> %
+vnoremap <Tab> %
+
+" 色テーマを設定 デフォルトで何種類か用意されています。今回は「elflord」を選択
+colorscheme darkblue
+"colorscheme molokai
+"syntax on
+"let g:molokai_original = 1
+"let g:rehash256 = 1
+"set background=dark
+
+" タブを常に表示する。
+set showtabline=2
+" エンコード
+set encoding=utf8
+" ファイルエンコード
+set fileencoding=utf-8
+" スクロールする時に下が見えるようにする
+set scrolloff=5
+" .swapファイルを作らない
+set noswapfile
+" バックアップファイルを作らない
+set nowritebackup
+" バックアップをしない
+set nobackup
+" バックスペースで各種消せるようにする
+set backspace=indent,eol,start
+" ビープ音を消す
+set vb t_vb=
+set novisualbell
+" OSのクリップボードを使う
+set clipboard+=unnamed
+set clipboard=unnamed
+" 不可視文字を表示
+set list
+" 行番号を表示
+set number
+" 右下に表示される行・列の番号を表示する
+"set ruler
+" compatibleオプションをオフにする
+set nocompatible
+" 移動コマンドを使ったとき、行頭に移動しない
+set nostartofline
+" 対応括弧に<と>のペアを追加
+set matchpairs& matchpairs+=<:>
+" 対応括弧をハイライト表示する
+set showmatch
+" 対応括弧の表示秒数を3秒にする
+set matchtime=3
+" ウィンドウの幅より長い行は折り返され、次の行に続けて表示される
+set wrap
+" 入力されているテキストの最大幅を無効にする
+set textwidth=0
+set colorcolumn=80      " その代わり80文字目にラインを入れる
+" 不可視文字を表示
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
+" インデントをshiftwidthの倍数に丸める
+set shiftround
+" 補完の際の大文字小文字の区別しない
+set infercase
+" 文字がない場所にもカーソルを移動できるようにする
+"set virtualedit=all
+" 変更中のファイルでも、保存しないで他のファイルを表示
+set hidden
+" 新しく開く代わりにすでに開いてあるバッファを開く
+set switchbuf=useopen
+" 小文字の検索でも大文字も見つかるようにする
+set ignorecase
+" ただし大文字も含めた検索の場合はその通りに検索する
+set smartcase
+" インクリメンタルサーチを行う
+set incsearch
+" コマンド、検索パターンを10000個まで履歴に残す
+set history=10000
+" マウスモード有効
+set mouse=a
+" xtermとscreen対応
+set ttymouse=xterm2
+" コマンドを画面最下部に表示する
+set showcmd
+ " IMを無効化
+set imdisable
+" アンチエイリアスの設定
+set antialias
+" インデントを表示
+" set list
+set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
+" 透明度
+set transparency=30
+" tab
+set tabstop=4
+set autoindent
+set expandtab
+set shiftwidth=4
+" 絶対に自動改行しない
+set formatoptions=q
+" 単語を途中で折らない
+set linebreak
+" 開いたら全画面 それっぽくMac版
+au GUIEnter * winpos 0 0
+set lines=160 columns=180
+" コマンドライン補完を便利に
+set wildmenu
+" タイプ途中のコマンドを画面最下行に表示
+set showcmd
+" 検索語を強調表示（<C-L>を押すと現在の強調表示を解除する）
+set hlsearch
+" 検索時に大文字・小文字を区別しない。ただし、検索後に大文字小文字が
+" 混在しているときは区別する
+set ignorecase
+set smartcase
+" ビープの代わりにビジュアルベル（画面フラッシュ）を使う
+set visualbell
+
+" 前時代的スクリーンベルを無効化
+"set t_vb=
+"set novisualbell
+
+" デフォルト不可視文字は美しくないのでUnicodeで綺麗に
+"set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
+
+" insertから抜けたら日本語入力をoff
+inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+
+" <C-L>で検索後の強調表示を解除する
+nnoremap <C-L> :nohl<CR><C-L>
+
