@@ -280,3 +280,4 @@ bindkey "^R" history-incremental-search-backward
 #Function title {
 #    echo -ne "\033]0;"$*"\007"
 #}
+
