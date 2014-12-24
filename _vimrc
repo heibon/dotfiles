@@ -279,6 +279,9 @@ nnoremap <c-h> <c-w>h
 "<space>j, <space>kで画面送り
 noremap [Prefix]j <c-f><cr><cr>
 noremap [Prefix]k <c-b><cr><cr>
+
+" NERDTree Ctrl+e
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
  
 "" PHP用設定
 "" PHP辞書ファイル指定
