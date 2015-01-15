@@ -73,9 +73,14 @@ NeoBundle 'git@github.com:jmcantrell/vim-virtualenv.git'
 NeoBundle 'git://github.com/davidhalter/jedi-vim.git'
 NeoBundle 'sudar/vim-arduino-syntax'
 NeoBundle 'rizzatti/dash.vim.git'
+" C++
+NeoBundleLazy 'kana/vim-altr'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.?(extlib|git|hg|svn|pyc|html~)$',
   \ }
+NeoBundleLazy 'vim-jp/cpp-vim', {
+            \ 'autoload' : {'filetypes' : 'cpp'}
+            \ }
 
 " Installation check.
 NeoBundleCheck
@@ -282,7 +287,20 @@ noremap [Prefix]k <c-b><cr><cr>
 
 " NERDTree Ctrl+e
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
- 
+
+"" C++用設定
+au BufRead,BufNewFile,BufReadPre *.cpp, *.h   set filetype=cpp
+
+autocmd FileType cpp let g:pydiction_location = '~/.vim/pydiction/complete-dict'
+autocmd FileType cpp setl autoindent
+autocmd FileType cpp setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd FileType cpp setl expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType cpp nnoremap <Leader>a <Plug>(altr-forward)
+
+
+
+
+
 "" PHP用設定
 "" PHP辞書ファイル指定
 "autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
