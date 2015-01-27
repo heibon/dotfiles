@@ -517,7 +517,7 @@ inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<BS>"
 "C-yで補完候補の確定
 inoremap <expr><C-y> neocomplcache#close_popup()
-inoremap <expr><Enter> neocomplcache#close_popup()
+inoremap <expr><C-Enter> neocomplcache#close_popup()
 "C-eで補完のキャンセルし、ウィンドウを閉じる。ポップアップが開いていないときはEndキー
 inoremap <expr><C-e> pumvisible() ? neocomplcache#cancel_popup() : "\<End>"
 "C-gで補完を元に戻す
