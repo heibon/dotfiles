@@ -513,7 +513,7 @@ inoremap <expr><CR> neocomplcache#smart_close_popup()."\<CR>"
 inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
 "C-h, BSで補完ウィンドウを確実に閉じる
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<BS>"
 "C-yで補完候補の確定
 inoremap <expr><C-y> neocomplcache#close_popup()
