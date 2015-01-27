@@ -73,14 +73,19 @@ NeoBundle 'git@github.com:jmcantrell/vim-virtualenv.git'
 NeoBundle 'git://github.com/davidhalter/jedi-vim.git'
 NeoBundle 'sudar/vim-arduino-syntax'
 NeoBundle 'rizzatti/dash.vim.git'
+" json syntax
+NeoBundle 'elzr/vim-json'
+" json parser
+NeoBundle '5t111111/neat-json.vim'
 " C++
-NeoBundleLazy 'kana/vim-altr'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.?(extlib|git|hg|svn|pyc|html~)$',
-  \ }
-NeoBundleLazy 'vim-jp/cpp-vim', {
-            \ 'autoload' : {'filetypes' : 'cpp'}
-            \ }
+NeoBundle 'kana/vim-altr'
+"NeoBundleLazy 'kana/vim-altr'
+"let g:ctrlp_custom_ignore = {
+"  \ 'dir':  '\v[\/]\.?(extlib|git|hg|svn|pyc|html~)$',
+"  \ }
+"NeoBundleLazy 'vim-jp/cpp-vim', {
+"            \ 'autoload' : {'filetypes' : 'cpp'}
+"            \ }
 
 " Installation check.
 NeoBundleCheck
@@ -297,7 +302,23 @@ autocmd FileType cpp setl smartindent cinwords=if,elif,else,for,while,try,except
 autocmd FileType cpp setl expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType cpp nnoremap <Leader>a <Plug>(altr-forward)
 
+"" Json Syntax用の設定
+au BufRead,BufNewFile,BufReadPre *.json set filetype=json
+setlocal foldmethod=syntax
 
+autocmd FileType json let g:vim_json_syntax_conceal = 0
+autocmd FileType json setlocal foldmethod=syntax
+
+" json parser
+command! -nargs=? Jq call s:Jq(<f-args>)
+function! s:Jq(...)
+    if 0 == a:0
+        let l:arg = "."
+    else
+        let l:arg = a:1
+    endif
+    execute "%! jq 95fe1a73-e2e2-4737-bea1-a44257c50fc8quot;" . l:arg . "95fe1a73-e2e2-4737-bea1-a44257c50fc8quot;"
+endfunction
 
 
 
