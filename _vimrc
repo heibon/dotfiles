@@ -302,6 +302,14 @@ autocmd FileType cpp setl smartindent cinwords=if,elif,else,for,while,try,except
 autocmd FileType cpp setl expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType cpp nnoremap <Leader>a <Plug>(altr-forward)
 
+"" Lua用設定
+au BufRead,BufNewFile,BufReadPre *.lua   set filetype=lua
+" python_pydiction
+autocmd FileType lua setl autoindent
+autocmd FileType lua setl smartindent cinwords=if,elif,else,do,repeat,class,function
+autocmd FileType lua setl expandtab tabstop=4 shiftwidth=4 softtabstop=4
+
+
 "" Json Syntax用の設定
 au BufRead,BufNewFile,BufReadPre *.json set filetype=json
 setlocal foldmethod=syntax
