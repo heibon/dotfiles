@@ -513,7 +513,7 @@ inoremap <expr><CR> neocomplcache#smart_close_popup()."\<CR>"
 inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
 "C-h, BSで補完ウィンドウを確実に閉じる
-"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<BS>"
 "C-yで補完候補の確定
 inoremap <expr><C-y> neocomplcache#close_popup()
@@ -522,8 +522,6 @@ inoremap <expr><C-Enter> neocomplcache#close_popup()
 inoremap <expr><C-e> pumvisible() ? neocomplcache#cancel_popup() : "\<End>"
 "C-gで補完を元に戻す
 inoremap <expr><C-g> neocomplcache#undo_completion()
-
-
 
 " Python用設定
 " let NERDTreeShowHidden = 1
