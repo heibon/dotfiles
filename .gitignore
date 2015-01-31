@@ -1,1 +1,4 @@
-*.swp
+.vim/bundle/
+.vim/bundle/**/*
+.swp
+.DS_Store
