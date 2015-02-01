@@ -71,7 +71,7 @@
 	
 	## Maildir
 	# Path to the maildir to check.
-	export TMUX_POWERLINE_SEG_MAILCOUNT_MAILDIR_INBOX="/Users/heibon/.mail/inbox/new"
+	export TMUX_POWERLINE_SEG_MAILCOUNT_MAILDIR_INBOX="/Users/user/.mail/inbox/new"
 	
 	## mbox
 	# Path to the mbox to check.
@@ -79,7 +79,7 @@
 	
 	## mailcheck
 	# Optional path to mailcheckrc
-	export TMUX_POWERLINE_SEG_MAILCOUNT_MAILCHECKRC="/Users/heibon/.mailcheckrc"
+	export TMUX_POWERLINE_SEG_MAILCOUNT_MAILCHECKRC="/Users/user/.mailcheckrc"
 # }
 
 # now_playing.sh {
