@@ -1,0 +1,23 @@
+# main viewの左端にコミットIDを表示する
+set show-id = yes
+
+# 垂直方向に分割する
+set vertical-split = yes
+#set vertical-split = no 
+#set vertical-split = auto
+
+# 分割したウィンドウの下のサイズを行数 or %で指定
+set split-view-height = 80%
+
+# space size
+set tab-size = 4
+
+# Number of diff-context line
+set diff-context = 6
+
+# ignore case in searches
+set ignore-case = yes
+
+# 行の折り返しを行う
+set wrap-lines = yes
+

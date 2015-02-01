@@ -441,7 +441,7 @@ let g:neocomplcache_delimiter_patterns['php'] = ['->', '::', '\']
 "カーソルより後のキーワードパターンを認識。
 "h|geとなっている状態(|はカーソル)で、hogeを補完したときに後ろのキーワードを認識してho|geと補完する機能。
 "修正するときにかなり便利。
-g:neocomplcache_next_keyword_patternsは分からないときはいじらないほうが良いです。
+"g:neocomplcache_next_keyword_patternsは分からないときはいじらないほうが良いです。
 if !exists('g:neocomplcache_next_keyword_patterns')
     let g:neocomplcache_next_keyword_patterns = {}
 endif
@@ -505,23 +505,19 @@ endif
 let g:neocomplcache_omni_patterns['twig']= '<[^>]*'
 "let g:neocomplcache_omni_patterns['php'] = '[^. \t]->\h\w*\|\h\w*::'
 
-
-
-"改行で補完ウィンドウを閉じる
-inoremap <expr><CR> neocomplcache#smart_close_popup()."\<CR>"
-"tabで補完候補の選択を行う
-inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<TAB>"
-inoremap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
-"C-h, BSで補完ウィンドウを確実に閉じる
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<BS>"
-"C-yで補完候補の確定
-inoremap <expr><C-y> neocomplcache#close_popup()
-inoremap <expr><C-Enter> neocomplcache#close_popup()
-"C-eで補完のキャンセルし、ウィンドウを閉じる。ポップアップが開いていないときはEndキー
-inoremap <expr><C-e> pumvisible() ? neocomplcache#cancel_popup() : "\<End>"
-"C-gで補完を元に戻す
-inoremap <expr><C-g> neocomplcache#undo_completion()
+" Shougo/neocomplcache.vim"{{{
+if neobundle#tap('neocomplcache.vim')
+  call neobundle#config({
+    \   'autoload' : {
+    \     'insert' : 1,
+    \   }
+    \ })
+  function! neobundle#tapped.hooks.on_source(bundle)
+    let g:neocomplcache_enable_smart_case = 1
+  endfunction
+  call neobundle#untap()
+endif
+"}}}
 
 " Python用設定
 " let NERDTreeShowHidden = 1
@@ -639,6 +635,14 @@ autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else
  
 " \ + rでスクリプト実行
 nmap <Leader>r <plug>(quickrun)
+
+" 外部で変更のあったファイルを自動的に再読み込みする {{{
+" http://vim-users.jp/2011/03/hack206/
+augroup vimrc-checktime
+  autocmd!
+  autocmd WinEnter * checktime
+augroup END
+" }}}
  
 " 全角スペースのハイライトを設定
 function! ZenkakuSpace()
