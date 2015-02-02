@@ -26,6 +26,7 @@ alias gpm="git pull origin master"
 alias gsu="git submodule update"
 alias gbn='git rev-parse --abbrev-ref HEAD'
 alias git-new-workdir='~/bin/git-new-workdir'
+alias github="sh ~/dotfiles/files/open_github.sh"
 
 ####################
 # ORIGINAL COMMAND #
