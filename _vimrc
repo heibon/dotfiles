@@ -37,7 +37,7 @@ NeoBundle 'ujihisa/unite-rake'
 NeoBundle 'basyura/unite-rails'
 NeoBundle 'thinca/vim-ref'
 "NeoBundle 'taichouchou2/vim-ref-ri'
-NeoBundle 'taq/vim-rspec'
+"NeoBundle 'taq/vim-rspec'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Lokaltog/powerline'
 " Perl関連プラグインをバンドル
