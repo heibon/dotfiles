@@ -104,6 +104,7 @@ brew cask install sourcetree
 brew cask install skype
 brew cask install karabiner
 brew cask install bettertouchtool
+brew cask install airmail-amt
 
 # media player
 #brew cask install blu-ray-player
