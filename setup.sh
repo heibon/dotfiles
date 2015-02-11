@@ -34,6 +34,11 @@ mkdir -p ~/.vim/bundle
 git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 echo "The end of a setting of dotfiles."
 
+echo "The clone start XVim plugin ......."
+mkdir -p ~/dev/tools
+git clone git@github.com:XVimProject/XVim.git ~/dev/tools/XVim
+echo "The clone end XVim plugin"
+
 echo "Starting setting of tmux-powerline......"
 git submodule update --init
 echo "The end of a cloning tmux-powerline"

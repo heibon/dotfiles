@@ -4,6 +4,3 @@
 [submodule "tmux-powerline"]
 	path = tmux-powerline
 	url = git@github.com:erikw/tmux-powerline.git
-[submodule "tools/XVim"]
-	path = tools/XVim
-	url = git@github.com:XVimProject/XVim.git
