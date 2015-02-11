@@ -298,7 +298,8 @@ noremap [Prefix]k <c-b><cr><cr>
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 "" C++用設定
-au BufRead,BufNewFile,BufReadPre *.cpp, *.h   set filetype=cpp
+au BufRead,BufNewFile,BufReadPre *.cpp set filetype=cpp
+au BufRead,BufNewFile,BufReadPre *.h   set filetype=cpp
 
 autocmd FileType cpp let g:pydiction_location = '~/.vim/pydiction/complete-dict'
 autocmd FileType cpp setl autoindent

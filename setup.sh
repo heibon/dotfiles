@@ -11,6 +11,7 @@ dotfiles=(
   "_zshenv .zshenv"
   "_zshrc .zshrc"
   "_tmux-powerlinerc .tmux-powerlinerc"
+  "_vrapperrc .vrapperrc"
 )
 
 echo "Starting setting of dotfiles......"
