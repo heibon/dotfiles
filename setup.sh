@@ -23,12 +23,11 @@ for ((i=0; ${#dotfiles[*]}>$i; i++))
     if [ -e $HOME/${tmp[1]} ];then
       rm $HOME/${tmp[1]}
       echo "> Delete File : $HOME/${tmp[1]}"
-  fi
+    fi
     # Symbolic Link
     echo "> Symbolic Link : $HOME/dotfiles/${tmp[0]} -> $HOME/${tmp[1]}"
     ln -s $HOME/dotfiles/${tmp[0]} $HOME/${tmp[1]}
   done
-exit
 
 mkdir -p ~/.vim/bundle
 git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
@@ -44,3 +43,5 @@ git submodule update --init
 echo "The end of a cloning tmux-powerline"
 
 echo "All setting is done. run vim and type Yes to install plugins by NeoBundle"
+
+exit
