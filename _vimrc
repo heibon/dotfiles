@@ -297,6 +297,9 @@ noremap [Prefix]k <c-b><cr><cr>
 " NERDTree Ctrl+e
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
+" Gitv Ctrl+g
+nnoremap <silent><C-g> :Gitv<CR>
+
 "" C++用設定
 au BufRead,BufNewFile,BufReadPre *.cpp set filetype=cpp
 au BufRead,BufNewFile,BufReadPre *.h   set filetype=cpp
