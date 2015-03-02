@@ -108,7 +108,6 @@ brew cask install xtrafinder
 
 # media player
 #brew cask install blu-ray-player
-
 # game
 #brew cask install minecraft
 

@@ -55,7 +55,7 @@ echo "The end Karabiner setup......"
 
 # /Applications/Karabiner.app/Contents/Library/bin/karabiner export > karabiner.sh
 # を事前にしておく
-source karabiner.sh
+source ./files/karabiner.sh
 
 echo "All setting is done. run vim and type Yes to install plugins by NeoBundle"
 
