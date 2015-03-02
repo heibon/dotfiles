@@ -165,15 +165,16 @@ vnoremap v $h
 nnoremap &lt;Tab&gt; %
 vnoremap &lt;Tab&gt; %
 "" Ctrl + hjkl でウィンドウ間を移動
+"" MEMO:別のキーバインドと競合のするので不要
 "nnoremap <C-h> <C-w>h
 "nnoremap <C-j> <C-w>j
 "nnoremap <C-k> <C-w>k
 "nnoremap <C-l> <C-w>l
 " Shift + 矢印でウィンドウサイズを変更
-"nnoremap <S-Left>  <C-w><<CR>
-"nnoremap <S-Right> <C-w><CR>
-"nnoremap <S-Up>    <C-w>-<CR>
-"nnoremap <S-Down>  <C-w>+<CR>
+nnoremap <S-Left>  <C-w><<CR>
+nnoremap <S-Right> <C-w><CR>
+nnoremap <S-Up>    <C-w>-<CR>
+nnoremap <S-Down>  <C-w>+<CR>
 
 " ウィンドウ関連
 nnoremap s <Nop>
@@ -300,10 +301,14 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " Gitv Ctrl+g
 nnoremap <silent><C-g> :Gitv<CR>
 
-"" C++用設定
-au BufRead,BufNewFile,BufReadPre *.cpp set filetype=cpp
-au BufRead,BufNewFile,BufReadPre *.h   set filetype=cpp
+"" Markdown用設定
+au BufRead,BufNewFile,BufReadPre *.{md,mdwn,mkd,mkdn,mark} set filetype=markdown
+autocmd FileType markdown setl autoindent
+autocmd FileType markdown setl expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType markdown let g:instant_markdown_slow = 1
 
+"" C++用設定
+au BufRead,BufNewFile,BufReadPre *.{cpp,h} set filetype=cpp
 autocmd FileType cpp let g:pydiction_location = '~/.vim/pydiction/complete-dict'
 autocmd FileType cpp setl autoindent
 autocmd FileType cpp setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
