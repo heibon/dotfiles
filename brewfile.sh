@@ -10,6 +10,7 @@ brew tap caskroom/cask
 brew tap homebrew/dupes
 brew tap peco/peco
 brew tap sanemat/font
+brew tap josegonzalez/homebrew-php
 
 # fox X
 brew cask install xquartz
@@ -76,6 +77,10 @@ brew install zsh-completions
 brew install docker
 brew install boot2docker
 brew install zlib
+#brew install phpenv
+brew install --HEAD phpenv
+brew install php-build
+
 
 # brew cask
 brew cask install --caskroom=/Applications google-chrome
