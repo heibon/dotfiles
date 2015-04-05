@@ -10,6 +10,7 @@ dotfiles=(
   "_zshrc .zshrc"
   "_tmux-powerlinerc .tmux-powerlinerc"
   "_vrapperrc .vrapperrc"
+  "_gitconfig .gitconfig"
 )
 
 echo "Starting delete of dotfiles......"
