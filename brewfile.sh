@@ -110,6 +110,7 @@ brew cask install skype
 brew cask install karabiner
 brew cask install bettertouchtool
 brew cask install xtrafinder
+brew cask install openoffice
 
 # media player
 #brew cask install blu-ray-player

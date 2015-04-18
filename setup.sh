@@ -1,6 +1,5 @@
 #!/usr/local/bin/zsh
 
-
 # dotfiles
 dotfiles=(
   "_gvimrc .gvimrc"
@@ -12,6 +11,7 @@ dotfiles=(
   "_zshrc .zshrc"
   "_tmux-powerlinerc .tmux-powerlinerc"
   "_vrapperrc .vrapperrc"
+  "_ideavimrc .ideavimrc"
   "_gitconfig .gitconfig"
 )
 
