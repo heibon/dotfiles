@@ -98,11 +98,9 @@ brew cask install texturepacker
 brew cask install wireshark
 brew cask install hipchat
 brew cask install magican
-brew cask install appcode
 brew cask install onyx
 brew cask install diskwave
 brew cask install shiftit
-brew cask install macvim
 brew cask install transmit
 brew cask install 1password
 brew cask install sourcetree
@@ -111,6 +109,13 @@ brew cask install karabiner
 brew cask install bettertouchtool
 brew cask install xtrafinder
 brew cask install openoffice
+# Editer
+brew cask install macvim
+brew cask install appcode
+brew cask install android-studio
+# Android Simulator
+brew cask install virtualbox
+brew cask install genymotion
 
 # media player
 #brew cask install blu-ray-player
