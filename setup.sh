@@ -26,8 +26,9 @@ for ((i=0; ${#dotfiles[*]}>$i; i++))
       echo "> Delete File : $HOME/${tmp[1]}"
     fi
     # Symbolic Link
-    echo "> Symbolic Link : $HOME/dotfiles/${tmp[0]} -> $HOME/${tmp[1]}"
-    ln -s $HOME/dotfiles/${tmp[0]} $HOME/${tmp[1]}
+    echo "> Symbolic Link : $HOME/dotfiles/setupfiles/${tmp[0]} -> $HOME/${tmp[1]}"
+    rm $HOME/${tmp[1]}
+    ln -s $HOME/dotfiles/setupfiles/${tmp[0]} $HOME/${tmp[1]}
   done
 
 mkdir -p ~/.vim/bundle
