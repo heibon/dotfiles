@@ -2,6 +2,9 @@
 # 環境変数
 # -------------------------------------
 
+# SERVER_ENV
+export SERVER_ENV=Local
+
 # BASE
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 
@@ -19,6 +22,9 @@ export EDITOR=/usr/local/bin/vim
 # ページャ
 export PAGER=/usr/local/bin/vimpager
 export MANPAGER=/usr/local/bin/vimpager
+
+# java
+export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 
 # -------------------------------------
 # Cocos2dx v3.2での開発環境合わせ
