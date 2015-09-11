@@ -1,5 +1,5 @@
 [user]
-	name = RyosukeKawabata 
+	name = Ryosuke Kawabata 
 	email = ryosuke-kawabata@gmotech.jp
 [alias]
     	ignore = !"f() { local s=$1; shift; \

@@ -3,9 +3,9 @@
 # command
 #alias mvim="/Applications/MacVim.app/Contents/MacOS/Vim -g"
 alias mvim="/opt/homebrew-cask/Caskroom/macvim/7.4-75/MacVim-snapshot-75/MacVim.app/Contents/MacOS/Vim -g"
-alias py="/usr/bin/python2.6"
+alias py="python"
 alias apk_download="open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args -ignore-certificate-errors"
-alias convert="/opt/ImageMagick/bin/convert"
+#alias convert="/opt/ImageMagick/bin/convert"
 
 # test
 alias pt="py.test tests/"

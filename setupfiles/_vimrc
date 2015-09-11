@@ -12,7 +12,6 @@ set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
-call neobundle#end()
 
 NeoBundle 'Shougo/neobundle.vim'
 " 以下のプラグインをバンドル
@@ -93,6 +92,7 @@ NeoBundle 'kana/vim-altr'
 
 " Installation check.
 NeoBundleCheck
+call neobundle#end()
 
 filetype on
 filetype plugin indent on
@@ -317,11 +317,6 @@ autocmd FileType cpp nnoremap <Leader>a <Plug>(altr-forward)
 
 "" Lua用設定
 au BufRead,BufNewFile,BufReadPre *.lua   set filetype=lua
-" python_pydiction
-autocmd FileType lua setl autoindent
-autocmd FileType lua setl smartindent cinwords=if,elif,else,do,repeat,class,function
-autocmd FileType lua setl expandtab tabstop=4 shiftwidth=4 softtabstop=4
-
 
 "" Json Syntax用の設定
 au BufRead,BufNewFile,BufReadPre *.json set filetype=json
@@ -661,7 +656,7 @@ augroup END
 function! ZenkakuSpace()
   highlight ZenkakuSpace cterm=underline ctermfg=darkgrey gui=underline guifg=darkgrey
 endfunction
- 
+
 if has('syntax')
   augroup ZenkakuSpace
     autocmd!
