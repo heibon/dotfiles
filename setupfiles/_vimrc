@@ -12,7 +12,6 @@ set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
-call neobundle#end()
 
 NeoBundle 'Shougo/neobundle.vim'
 " 以下のプラグインをバンドル
@@ -92,6 +91,8 @@ NeoBundle 'kana/vim-altr'
 "            \ }
 
 " Installation check.
+
+call neobundle#end()
 NeoBundleCheck
 
 filetype on
