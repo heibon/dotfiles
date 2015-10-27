@@ -80,6 +80,7 @@ brew install zlib
 #brew install phpenv
 brew install --HEAD phpenv
 brew install php-build
+brew install ag
 
 
 # brew cask

@@ -2,7 +2,7 @@
 
 cli=/Applications/Karabiner.app/Contents/Library/bin/karabiner
 
-$cli set remap.mouse_keys_mode_holding_m 1
+$cli set option.mousekeys_mode_wer2click 1
 /bin/echo -n .
 $cli set repeat.initial_wait 100
 /bin/echo -n .
@@ -20,6 +20,6 @@ $cli set repeat.wait 10
 /bin/echo -n .
 $cli set repeat.consumer_wait 20
 /bin/echo -n .
-$cli set option.mousekeys_mode_wer2click 1
+$cli set remap.mouse_keys_mode_holding_m 1
 /bin/echo -n .
 /bin/echo

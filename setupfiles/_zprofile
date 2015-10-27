@@ -8,11 +8,11 @@ alias apk_download="open -a /Applications/Google\ Chrome.app/Contents/MacOS/Goog
 #alias convert="/opt/ImageMagick/bin/convert"
 
 # test
-alias pt="py.test tests/"
+alias pt="python.test tests/"
 
 # server
-alias run="py manage.py runserver"
-alias admrun="py manage.py runadminserver"
+alias run="python manage.py runserver"
+alias admrun="python manage.py runadminserver"
 
 # git
 alias gc="git checkout"
@@ -50,7 +50,7 @@ function yes_no {
 
 # s3アップ用
 function s3 {
-    S3_BASE="py ./manage.py do_sync_all"
+    S3_BASE="python ./manage.py do_sync_all"
     S3_TARGET=" --target="
     S3_OPTION=" --run=true"
     S3_DIC="$1"
