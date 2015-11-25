@@ -1,6 +1,6 @@
 [user]
-	name = heibon
-	email = ryosuke.kawabata@gmail.com
+	name = Ryosuke Kawabata 
+	email = ryosuke-kawabata@gmotech.jp
 [alias]
     	ignore = !"f() { local s=$1; shift; \
       	while [ $# -gt 0 ]; do s=\"$s,$1\"; shift; done;\

@@ -74,3 +74,14 @@ onoremap aq  a'
 vnoremap aq  a'
 onoremap iq  i'
 vnoremap iq  i'
+
+" /{pattern}の入力中は「/」をタイプすると自動で「\/」が、
+" ?{pattern}の入力中は「?」をタイプすると自動で「\?」が 入力されるようになる
+cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
+cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
+
+if has('unnamedplus')
+    set clipboard& clipboard+=unnamedplus
+else
+    set clipboard& clipboard+=unnamed,autoselect
+endif

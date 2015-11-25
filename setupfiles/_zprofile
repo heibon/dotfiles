@@ -1,9 +1,11 @@
 # Global
 
 # command
-alias mvim="/Applications/MacVim.app/Contents/MacOS/Vim -g"
+#alias mvim="/Applications/MacVim.app/Contents/MacOS/Vim -g"
+alias mvim="/opt/homebrew-cask/Caskroom/macvim/7.4-75/MacVim-snapshot-75/MacVim.app/Contents/MacOS/Vim -g"
+alias py="python"
 alias apk_download="open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args -ignore-certificate-errors"
-alias convert="/opt/ImageMagick/bin/convert"
+#alias convert="/opt/ImageMagick/bin/convert"
 
 # test
 alias pt="python.test tests/"
@@ -26,6 +28,7 @@ alias gsu="git submodule update"
 alias gbn='git rev-parse --abbrev-ref HEAD'
 alias git-new-workdir='~/bin/git-new-workdir'
 alias github="sh ~/dotfiles/files/open_github.sh"
+alias bit="sh ~/dotfiles/files/open_bitbucket.sh"
 
 ####################
 # ORIGINAL COMMAND #
