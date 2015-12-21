@@ -53,4 +53,3 @@ export PATH=$COCOS_CONSOLE_ROOT:$PATH
 # ccache
 export NDK_CCACHE=`which ccache`
 
-
