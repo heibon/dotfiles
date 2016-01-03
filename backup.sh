@@ -7,8 +7,6 @@ echo "karabiner backup..."
 
 echo "pip backup..."
 pip freeze > ./files/pip_packages.txt
-echo "pip-2.6 backup..."
-pip-2.6 freeze > ./files/pip26_packages.txt
 
 echo ""
 echo "The End Create Backup Files"
