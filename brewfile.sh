@@ -1,4 +1,8 @@
-#!/bin/sh# latest
+#!/bin/sh#latest
+
+# install Homebrew
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 brew update
 
 # update all
@@ -10,6 +14,7 @@ brew tap caskroom/cask
 brew tap homebrew/dupes
 brew tap peco/peco
 brew tap sanemat/font
+brew tap caskroom/versions
 brew tap josegonzalez/homebrew-php
 
 # fox X
@@ -114,9 +119,14 @@ brew cask install openoffice
 brew cask install macvim
 brew cask install appcode
 brew cask install android-studio
+brew cask install intellij-idea
 # Android Simulator
 brew cask install virtualbox
 brew cask install genymotion
+# Java
+brew cask install java6
+brew cask install java7
+brew cask install java8
 
 # media player
 #brew cask install blu-ray-player
