@@ -144,12 +144,16 @@ syntax on
 " w!! でスーパーユーザーとして保存（sudoが使える環境限定）
 cmap w!! w !sudo tee > /dev/null %
 "" 入力モード中に素早くJJと入力した場合はESCとみなす
-"inoremap jj <Esc>
+inoremap jj <Esc>
 " ESCを二回押すことでハイライトを消す
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
 " カーソル下の単語を * で検索
 vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v, '\/'), "\n", '\\n', 'g')<CR><CR>
 " 検索後にジャンプした際に検索単語を画面中央に持ってくる
+" insertから抜けたら日本語入力をoff
+inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+" <C-L>で検索後の強調表示を解除する
+nnoremap <C-L> :nohl<CR><C-L>
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *zz
@@ -300,6 +304,56 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 " Gitv Ctrl+g
 nnoremap <silent><C-g> :Gitv<CR>
+
+" key move
+noremap h h
+noremap k k
+noremap j j
+noremap l l
+
+" vimgrep
+nnoremap [q :cprevious<CR>   " 前へ
+nnoremap ]q :cnext<CR>       " 次へ
+nnoremap [Q :<C-u>cfirst<CR> " 最初へ
+nnoremap ]Q :<C-u>clast<CR>  " 最後へ
+
+" 挿入モードでのカーソル移動
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+
+" 挿入モードのEsc
+inoremap <C-c> <Esc>
+
+" Prefix: s
+nnoremap s <Nop>
+nnoremap sa :<C-u>CtrlP<Space>
+nnoremap sb :<C-u>CtrlPBuffer<CR>
+nnoremap sd :<C-u>CtrlPDir<CR>
+nnoremap sf :<C-u>CtrlP<CR>
+nnoremap sl :<C-u>CtrlPLine<CR>
+nnoremap sm :<C-u>CtrlPMRUFiles<CR>
+nnoremap sq :<C-u>CtrlPQuickfix<CR>
+nnoremap ss :<C-u>CtrlPMixed<CR>
+nnoremap st :<C-u>CtrlPTag<CR>
+
+" 検索後にジャンプした際に検索単語を画面中央に持ってくる
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
+" vを二回で行末まで選択
+vnoremap v $h
+
+cmap w!! w !sudo tee > /dev/null %
+
+" TABにて対応ペアにジャンプ
+nnoremap <Tab> %
+vnoremap <Tab> %
 
 "" Markdown用設定
 au BufRead,BufNewFile,BufReadPre *.{md,mdwn,mkd,mkdn,mark} set filetype=markdown

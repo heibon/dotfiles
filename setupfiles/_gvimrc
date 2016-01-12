@@ -1,31 +1,5 @@
-noremap h h
-noremap k k
-noremap j j
-noremap l l
+"<<<< GUI関係 >>>>"
 
-" vimgrep
-nnoremap [q :cprevious<CR>   " 前へ
-nnoremap ]q :cnext<CR>       " 次へ
-nnoremap [Q :<C-u>cfirst<CR> " 最初へ
-nnoremap ]Q :<C-u>clast<CR>  " 最後へ
-
-" 挿入モードでのカーソル移動
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
-
-" Prefix: s
-nnoremap s <Nop>
-nnoremap sa :<C-u>CtrlP<Space>
-nnoremap sb :<C-u>CtrlPBuffer<CR>
-nnoremap sd :<C-u>CtrlPDir<CR>
-nnoremap sf :<C-u>CtrlP<CR>
-nnoremap sl :<C-u>CtrlPLine<CR>
-nnoremap sm :<C-u>CtrlPMRUFiles<CR>
-nnoremap sq :<C-u>CtrlPQuickfix<CR>
-nnoremap ss :<C-u>CtrlPMixed<CR>
-nnoremap st :<C-u>CtrlPTag<CR>
 
 let g:ctrlp_map = '<Nop>'
 " Guess vcs root dir
@@ -35,6 +9,17 @@ let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_extensions = ['tag', 'quickfix', 'dir', 'line', 'mixed']
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:18'
 
+" if has('syntax')
+"   augroup ZenkakuSpace
+"     autocmd!
+"     " ZenkakuSpaceをカラーファイルで設定するなら次の行は削除
+"     autocmd ColorScheme       * call ZenkakuSpace()
+"     " 全角スペースのハイライト指定
+"     autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
+"   augroup END
+"   call ZenkakuSpace()
+" endif
+
 " 全角スペースの可視化
 scriptencoding utf-8
 augroup highlightDoubleByteSpace
@@ -42,23 +27,6 @@ augroup highlightDoubleByteSpace
   autocmd VimEnter,Colorscheme * highlight DoubleByteSpace term=underline ctermbg=LightMagenta guibg=LightMagenta
   autocmd VimEnter,WinEnter,BufRead * match DoubleByteSpace /　/
 augroup END
-
-" 検索後にジャンプした際に検索単語を画面中央に持ってくる
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
-nnoremap g* g*zz
-nnoremap g# g#zz
-
-" vを二回で行末まで選択
-vnoremap v $h
-
-cmap w!! w !sudo tee > /dev/null %
-
-" TABにて対応ペアにジャンプ
-nnoremap <Tab> %
-vnoremap <Tab> %
 
 " 色テーマを設定 デフォルトで何種類か用意されています。今回は「elflord」を選択
 colorscheme darkblue
@@ -177,10 +145,4 @@ set visualbell
 
 " デフォルト不可視文字は美しくないのでUnicodeで綺麗に
 "set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
-
-" insertから抜けたら日本語入力をoff
-inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
-
-" <C-L>で検索後の強調表示を解除する
-nnoremap <C-L> :nohl<CR><C-L>
 
