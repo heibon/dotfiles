@@ -91,6 +91,8 @@ NeoBundle 'kana/vim-altr'
 "            \ }
 
 " Installation check.
+
+call neobundle#end()
 NeoBundleCheck
 call neobundle#end()
 
