@@ -1,5 +1,7 @@
 #!/usr/local/bin/zsh
 
+BUNDLER=~/.vim/bundle
+
 # dotfiles
 dotfiles=(
   "_gvimrc .gvimrc"
@@ -31,8 +33,16 @@ for ((i=0; ${#dotfiles[*]}>$i; i++))
     ln -s $HOME/dotfiles/setupfiles/${tmp[0]} $HOME/${tmp[1]}
   done
 
-mkdir -p ~/.vim/bundle
-git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+git clone https://github.com/Shougo/vimproc.vim.git ~/.vim/bundle/vimproc.vim
+cd ~/.vim/bundle/vimproc.vim
+make
+cd ~/dotfiles
+curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > /tmp/install.sh
+sh /tmp/install.sh
+rm /tmp/install.sh
+~/.vim/bundle/neobundle.vim/bin/neoinstall
+#mkdir -p ~/.vim/bundle
+#git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 echo "The end of a setting of dotfiles."
 
 echo "The clone start XVim plugin ......."
