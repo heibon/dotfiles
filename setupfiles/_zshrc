@@ -285,12 +285,3 @@ bindkey "^R" history-incremental-search-backward
 #    echo -ne "\033]0;"$*"\007"
 #}
 
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# The next line updates PATH for the Google Cloud SDK.
-source '/Users/user/dev/tools/google-cloud-sdk/path.zsh.inc'
-
-# The next line enables shell command completion for gcloud.
-source '/Users/user/dev/tools/google-cloud-sdk/completion.zsh.inc'
