@@ -6,6 +6,9 @@ set smartcase
 set saney
 
 " keymap
+" その場で改行
+nnoremap oo i<Return><ESC>
+
 
 " 標準コマンド
 nnoremap <Space>w :<C-u>w<cr>
