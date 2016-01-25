@@ -326,7 +326,7 @@ noremap j j
 noremap l l
 
 " その場で改行
-nnoremap oo i<Return><ESC>
+nnoremap oi i<Return><ESC>
 
 " vimgrep
 nnoremap [q :cprevious<CR>   " 前へ
