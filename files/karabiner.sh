@@ -4,7 +4,7 @@ cli=/Applications/Karabiner.app/Contents/Library/bin/karabiner
 
 $cli set option.mousekeys_mode_wer2click 1
 /bin/echo -n .
-$cli set repeat.initial_wait 100
+$cli set repeat.initial_wait 200
 /bin/echo -n .
 $cli set remap.simultaneouskeypresses_mouse_keys_mode_df 1
 /bin/echo -n .
