@@ -197,11 +197,11 @@ alias be="bundle exec"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # phpenv
-export PATH=$PATH:$HOME/.phpenv/bin
-eval "$(phpenv init -)"
+#export PATH=$PATH:$HOME/.phpenv/bin
+#eval "$(phpenv init -)"
  
 # retter settings
-export EDITOR=vim
+export EDITOR=mvim
 export RETTER_HOME=`pwd`/my_letter
  
 ########################################
@@ -280,8 +280,6 @@ bindkey "^R" history-incremental-search-backward
 # cdしたあとで、自動的に ls する
 #function chpwd() { ls -1 }
 
-## iTerm2のタブ名を変更する
-#Function title {
-#    echo -ne "\033]0;"$*"\007"
-#}
+eval "$(direnv hook zsh)"
+
 

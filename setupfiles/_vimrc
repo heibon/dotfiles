@@ -248,19 +248,6 @@ function! s:mkdir(dir, force)
   endif
 endfunction
  
-"" vim 起動時のみカレントディレクトリを開いたファイルの親ディレクトリに指定 
-"function! s:ChangeCurrentDir(directory, bang)
-"    if a:directory == ''
-"        lcd %:p:h
-"    else
-"        execute 'lcd' . a:directory
-"    endif
-" 
-"    if a:bang == ''
-"        pwd
-"    endif
-"endfunction
-
 " insert modeで開始
 let g:unite_enable_start_insert = 1
 " 大文字小文字を区別しない
@@ -372,19 +359,16 @@ cmap w!! w !sudo tee > /dev/null %
 nnoremap <Tab> %
 vnoremap <Tab> %
 
+"" Default
+au BufRead,BufNewFile,BufReadPre *.{md,mdwn,mkd,mkdn,mark} set filetype=markdown
+
+
+
 "" Markdown用設定
 au BufRead,BufNewFile,BufReadPre *.{md,mdwn,mkd,mkdn,mark} set filetype=markdown
 autocmd FileType markdown setl autoindent
 autocmd FileType markdown setl expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType markdown let g:instant_markdown_slow = 1
-
-"" C++用設定
-au BufRead,BufNewFile,BufReadPre *.{cpp,h} set filetype=cpp
-autocmd FileType cpp let g:pydiction_location = '~/.vim/pydiction/complete-dict'
-autocmd FileType cpp setl autoindent
-autocmd FileType cpp setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd FileType cpp setl expandtab tabstop=4 shiftwidth=4 softtabstop=4
-autocmd FileType cpp nnoremap <Leader>a <Plug>(altr-forward)
 
 "" Lua用設定
 au BufRead,BufNewFile,BufReadPre *.lua   set filetype=lua
@@ -624,18 +608,6 @@ function! s:ExecPy()
 command! Exec call <SID>ExecPy()
 autocmd FileType python map <silent> <C-P> :call <SID>ExecPy()<CR>
 
-" python_pydiction
-autocmd FileType python let g:pydiction_location = '~/.vim/pydiction/complete-dict'
-autocmd FileType python setl autoindent
-autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd FileType python setl expandtab tabstop=4 shiftwidth=4 softtabstop=4
-" Execute python script C-P 
-function! s:ExecPy()
-    exe "!" . &ft . " %"
-:endfunction
-command! Exec call <SID>ExecPy()
-autocmd FileType python map <silent> <C-P> :call <SID>ExecPy()<CR>
-
 "################################
 "# http://qiita.com/alpaca_taichou/items/fb442cfa78f91634cfaa
 "# coffeeの設定
@@ -645,30 +617,6 @@ au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
 " インデントを設定
 autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
 
-"" Perl用設定
-"autocmd BufNewFile,BufRead *.psgi   set filetype=perl
-"autocmd BufNewFile,BufRead *.t      set filetype=perl
-"" Enable snipMate compatibility feature.↲
-"let g:neosnippet#enable_snipmate_compatibility = 1
-"imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-"smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-"xmap <C-k>     <Plug>(neosnippet_expand_target)
-"" SuperTab like snippets behavior.
-"imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-"\ "\<Plug>(neosnippet_expand_or_jump)"
-"\: pumvisible() ? "\<C-n>" : "\<TAB>"
-"smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-"\ "\<Plug>(neosnippet_expand_or_jump)"
-"\: "\<TAB>"
-" 
-"" For snippet_complete marker.
-"if has('conceal')
-"  set conceallevel=2 concealcursor=i
-"endif
-"" Tell Neosnippet about the other snippets
-"let g:neosnippet#snippets_directory='~/.vim/snippets/snippets'
-"" Define dictionary.
-"let g:neocomplcache_dictionary_filetype_lists = { 'default'    : '', 'perl'       : $HOME . '/.vim/dict/perl.dict' }
  
 " Java用設定
 "SQLのJava文字リテラルへの整形(:Sqltoj, :Sqlfromj)
