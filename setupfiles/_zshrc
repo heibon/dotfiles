@@ -1,3 +1,5 @@
+echo "load zshrc"
+
 # LANG
 export LANG=ja_JP.UTF-8
  
@@ -196,9 +198,8 @@ alias be="bundle exec"
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-# phpenv
-#export PATH=$PATH:$HOME/.phpenv/bin
-#eval "$(phpenv init -)"
+# GNU
+export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
  
 # retter settings
 export EDITOR=mvim
@@ -281,5 +282,3 @@ bindkey "^R" history-incremental-search-backward
 #function chpwd() { ls -1 }
 
 eval "$(direnv hook zsh)"
-
-

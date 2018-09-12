@@ -1,4 +1,5 @@
 # Global
+echo "load zprofile"
 
 # command
 alias mvim="/usr/local/Cellar/macvim/8.1-150/MacVim.app/Contents/MacOS/Vim -v"
@@ -128,5 +129,11 @@ function peco-cdr() {
 zle -N peco-cdr
 bindkey '^x' peco-cdr
 
+#[[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
 
-[[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
+export PYENV_ROOT="${HOME}/.pyenv"
+if [ -d "${PYENV_ROOT}" ]; then
+    export PATH=${PYENV_ROOT}/bin:$PATH
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi

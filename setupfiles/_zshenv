@@ -1,3 +1,5 @@
+echo "load zshenv"
+
 # -------------------------------------
 # 環境変数
 # -------------------------------------
@@ -63,6 +65,8 @@ export PATH=$PATH:${GOOGLE_CLOUD_PATH}
 # The next line enables shell command completion for gcloud.
 export GOOGLE_CLOUD_COMPLETION=/Users/user/dev/tools/google-cloud-sdk/completion.zsh.inc
 export PATH=$PATH:${GOOGLE_CLOUD_COMPLETION}
+
+eval "$(direnv hook zsh)"
 
 # ~/.zshenv.localがある場合は読み込む
 [[ -s $HOME/.zshenv.local ]] && source $HOME/.zshenv.local
