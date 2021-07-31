@@ -1,4 +1,5 @@
 echo "load zshenv"
+#zmodload zsh/zprof && zprof
 
 # -------------------------------------
 # 環境変数
@@ -8,18 +9,18 @@ echo "load zshenv"
 export SERVER_ENV=Local
 
 # BASE
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+#export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 
 # Android SDK
-export ANDROID_SDK_ROOT=/Users/user/dev/android_sdk
-export PATH=$PATH:$ANDROID_SDK_ROOT:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools
+#export ANDROID_SDK_ROOT=/Users/user/dev/android_sdk
+#export PATH=$PATH:$ANDROID_SDK_ROOT:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools
 
 # SSHで接続した先で日本語が使えるようにする
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # エディタ
-export EDITOR=/usr/local/bin/vim
+export EDITOR=/usr/bin/vim
 
 # ページャ
 export PAGER=/usr/local/bin/vimpager
@@ -27,46 +28,45 @@ export MANPAGER=/usr/local/bin/vimpager
 
 # java
 # export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-export PATH=$PATH:$JAVA_HOME/bin
+#export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+#export PATH=$PATH:$JAVA_HOME/bin
 
 # -------------------------------------
 # Cocos2dx v3.2での開発環境合わせ
 # -------------------------------------
 # Android NDK
-export NDK_ROOT=/Users/user/dev/android-ndk-r9d
+#export NDK_ROOT=/Users/user/dev/android-ndk-r9d
 #export NDK_ROOT=/Users/user/dev/android-ndk-r10
-export PATH=$PATH:${NDK_ROOT}
+#export PATH=$PATH:${NDK_ROOT}
 
 # ANT
 #export ANT_ROOT=/usr/local/bin
-export ANT_ROOT=/usr/local/bin/ant
-export PATH=$PATH:${ANT_ROOT}
+#export ANT_ROOT=/usr/local/bin/ant
+#export PATH=$PATH:${ANT_ROOT}
 
 # Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
 # cocos2dx 3.2
-export COCOS_CONSOLE_ROOT=/Users/user/dev/cocos2d-x-3.2/tools/cocos2d-console/bin
-export PATH=$COCOS_CONSOLE_ROOT:$PATH
+#export COCOS_CONSOLE_ROOT=/Users/user/dev/cocos2d-x-3.2/tools/cocos2d-console/bin
+#export PATH=$COCOS_CONSOLE_ROOT:$PATH
 # -------------------------------------
 # Cocos2dx v3.2 ここまで
 # -------------------------------------
 
 # ccache
-export NDK_CCACHE=`which ccache`
+#export NDK_CCACHE=`which ccache`
 
 ## Added by the Heroku Toolbelt
-export HEROKU_ROOT=/usr/local/heroku/bin
-export PATH=$PATH:${HEROKU_ROOT}
+#export HEROKU_ROOT=/usr/local/heroku/bin
+#export PATH=$PATH:${HEROKU_ROOT}
 
 # The next line updates PATH for the Google Cloud SDK.
-export GOOGLE_CLOUD_PATH=/Users/user/dev/tools/google-cloud-sdk/path.zsh.inc
-export PATH=$PATH:${GOOGLE_CLOUD_PATH}
+#export GOOGLE_CLOUD_PATH=/Users/user/dev/tools/google-cloud-sdk/path.zsh.inc
+#export PATH=$PATH:${GOOGLE_CLOUD_PATH}
 
 # The next line enables shell command completion for gcloud.
-export GOOGLE_CLOUD_COMPLETION=/Users/user/dev/tools/google-cloud-sdk/completion.zsh.inc
-export PATH=$PATH:${GOOGLE_CLOUD_COMPLETION}
-
-eval "$(direnv hook zsh)"
+#export GOOGLE_CLOUD_COMPLETION=/Users/user/dev/tools/google-cloud-sdk/completion.zsh.inc
+#export PATH=$PATH:${GOOGLE_CLOUD_COMPLETION}
 
 # ~/.zshenv.localがある場合は読み込む
 [[ -s $HOME/.zshenv.local ]] && source $HOME/.zshenv.local
+

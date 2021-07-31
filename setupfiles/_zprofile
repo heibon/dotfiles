@@ -2,9 +2,9 @@
 echo "load zprofile"
 
 # command
-alias mvim="/usr/local/Cellar/macvim/8.1-150/MacVim.app/Contents/MacOS/Vim -v"
-alias py="python"
-alias apk_download="open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args -ignore-certificate-errors"
+#alias mvim="/usr/local/Cellar/macvim/8.1-150/MacVim.app/Contents/MacOS/Vim -v"
+#alias py="python"
+#alias apk_download="open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args -ignore-certificate-errors"
 
 # test
 alias pt="python.test tests/"
@@ -100,35 +100,6 @@ function _git_refresh {
     git fetch
 }
 
-#pecoでhistory検索
-function peco-select-history() {
-  BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
-  CURSOR=$#BUFFER
-  zle clear-screen
-}
-zle -N peco-select-history
-bindkey '^r' peco-select-history
-
-# ### search a destination from cdr list
-function peco-get-destination-from-cdr() {
-  cdr -l | \
-  sed -e 's/^[[:digit:]]*[[:blank:]]*//' | \
-  peco --query "$LBUFFER"
-}
-
-### search a destination from cdr list and cd the destination
-function peco-cdr() {
-  local destination="$(peco-get-destination-from-cdr)"
-  if [ -n "$destination" ]; then
-    BUFFER="cd $destination"
-    zle accept-line
-  else
-    zle reset-prompt
-  fi
-}
-zle -N peco-cdr
-bindkey '^x' peco-cdr
-
 # python
 export PYENV_ROOT="${HOME}/.pyenv"
 if [ -d "${PYENV_ROOT}" ]; then
@@ -144,6 +115,12 @@ if [ -d "${RBENV_ROOT}" ]; then
     eval "$(rbenv init -)"
 fi
 
+# java
+export JENV_ROOT="${HOME}/.jenv"
+if [ -d "${JENV_ROOT}" ]; then
+    export PATH=${JENV_ROOT}/bin:$PATH
+    eval "$(jenv init -)"
+fi
+
 # ~/.zprofile.localがある場合は読み込む
 [[ -s $HOME/.zprofile.local ]] && source $HOME/.zprofile.local
-

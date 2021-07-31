@@ -10,7 +10,7 @@ bindkey -v
 PROMPT="$ "
 PROMPT2="> "
 SPROMPT="%r is correct? [n,y,a,e]: "
-#RPROMPT='[`rprompt-git-current-branch`%F{cyan}%~%f]'
+RPROMPT='[`rprompt-git-current-branch`%F{cyan}%~%f]'
 RPROMPT2="%K{green}%_%k"
 # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
 setopt prompt_subst
@@ -21,27 +21,25 @@ setopt transient_rprompt
 autoload -U colors; colors
  
 function rprompt-git-current-branch {
-local name st color
- 
-if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
-return
-fi
-name=$(basename "`git symbolic-ref HEAD 2> /dev/null`")
-if [[ -z $name ]]; then
-return
-fi
-st=`git status 2> /dev/null`
-if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-color=${fg[green]}
-elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
-color=${fg[yellow]}
-elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
-color=${fg_bold[red]}
-else
-color=${fg[red]}
-fi
- 
-echo "%{$color%}$name%{$reset_color%} "
+  local name st color
+  if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
+    return
+  fi
+  name=$(basename "`git symbolic-ref HEAD 2> /dev/null`")
+  if [[ -z $name ]]; then
+    return
+  fi
+  st=`git status 2> /dev/null`
+  if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
+  color=${fg[green]}
+  elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
+  color=${fg[yellow]}
+  elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
+  color=${fg_bold[red]}
+  else
+  color=${fg[red]}
+  fi
+  echo "%{$color%}$name%{$reset_color%} "
 }
  
 
@@ -202,7 +200,7 @@ alias be="bundle exec"
 export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
  
 # retter settings
-export EDITOR=mvim
+#export EDITOR=mvim
 export RETTER_HOME=`pwd`/my_letter
  
 ########################################
@@ -282,3 +280,18 @@ bindkey "^R" history-incremental-search-backward
 #function chpwd() { ls -1 }
 
 eval "$(direnv hook zsh)"
+export PATH="/usr/local/opt/ncurses/bin:$PATH"
+
+function peco-history-selection() {
+    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
+
+#if (which zprof > /dev/null 2>&1) ;then
+#  zprof
+#fi
+eval "$(rbenv init -)"
